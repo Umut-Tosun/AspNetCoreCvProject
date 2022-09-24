@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+@await Html.PartialAsync("/Views/Admin/PartialHead.cshtml")
+<body>
+    <!-- Sidenav -->
+    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+        <div class="scrollbar-inner">
+            <!-- Brand -->
+            <div class="sidenav-header  align-items-center">
+                <a class="navbar-brand" href="javascript:void(0)">
+                    <img src="~/argon-dashboard-master/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+                </a>
+            </div>
+            @await Html.PartialAsync("/Views/Admin/PartialSideBar.cshtml")
+        </div>
+    </nav>
+    <div class="main-content" id="panel">
+        
+        @await Html.PartialAsync("/Views/Admin/PartialNavbar.cshtml")
+        @await Html.PartialAsync("/Views/Admin/PartialNagivation.cshtml")
+
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col">
+                    @RenderBody()
+                </div>
+            </div>
+            <!-- Footer -->
+            @await Html.PartialAsync("/Views/Admin/Footer.cshtml")
+        </div>
+    </div>
+    @await Html.PartialAsync("/Views/Admin/PartialScripts.cshtml")
+</body>
+</html>
+

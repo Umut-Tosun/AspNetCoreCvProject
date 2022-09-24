@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "EditPortfolio";
+    Layout = "~/Views/Shared/NewAdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Projelerini Güncelle!</h3>
+</div>
+@using (Html.BeginForm("EditPortfolio", "Portfolio", FormMethod.Post))
+{
+    <br />
+    @Html.HiddenFor(x => x.PortfolioID)
+    @Html.Label("Proje Adı : ")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+    <br />
+    @Html.Label("Görsel Yolu : ")
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
+    <br />
+    @Html.Label("Büyük Görsel Yolu : ")
+    @Html.TextBoxFor(x => x.BigImageUrl, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.BigImageUrl, null, new { @class = "text-danger" })
+    <br />
+    @Html.Label("Proje Github Linki : ")
+    @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ProjectUrl, null, new { @class = "text-danger" })
+    <br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+}
+

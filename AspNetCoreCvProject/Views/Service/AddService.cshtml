@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "AddService";
+    Layout = "~/Views/Shared/NewAdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Hizmetlerini Arttır!</h3>
+</div>
+<!-- Light table -->
+<form class="form-group" method="post">
+    <br />
+    <br />
+    @Html.Label("Hizmet Başlığı :")
+    <input type="text" name="Title" class="form-control" />
+    <br />
+    @Html.Label("Görsel Yolu :")
+    <input type="text" name="ImageUrl" class="form-control" />
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
+

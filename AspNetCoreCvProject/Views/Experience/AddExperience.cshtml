@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/NewAdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Deneyimlerini Arttır!</h3>
+</div>
+<!-- Light table -->
+<form class="form-group" method="post">
+    <br />
+    <br />
+    @Html.Label("Şirket Adı :")
+    <input type="text" name="Name" class="form-control" />
+    <br />
+    @Html.Label("Date :")
+    <input type="date" name="Date" class="form-control" />
+    <br />
+    @Html.Label("Görsel Yolu :")
+    <input type="text" name="ImageUrl" class="form-control" />
+    <br />
+    @Html.Label("Açıklama :")
+    <textarea  name="Description" rows="4" cols="50" class="form-control"> </textarea>
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
+

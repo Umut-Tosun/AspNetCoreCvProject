@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Skill
+@{
+    ViewData["Title"] = "EditSkill";
+    Layout = "~/Views/Shared/NewAdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Yeteneklerini Güncelle!</h3>
+</div>
+@using (Html.BeginForm("EditSkill", "Skill", FormMethod.Post))
+{
+    <br />
+    <br />
+    @Html.HiddenFor(x=>x.SkillID)
+    @Html.Label("Yetenek Başlığı")
+    <input type="text" name="Title" value="@Model.Title" class="form-control" />
+    <br />
+    @Html.Label("Değer (1-100)")
+    <input type="range" name="Value" min="0" max="100" value="@Model.Value" class="form-control-range" step="1" oninput="DisplayChange(this.value)" />
+    <span id="value"></span>
+    <br />
+    <br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+}
+<script>
+    function DisplayChange(newvalue) {
+        document.getElementById(
+            "value").innerHTML = newvalue;
+    }
+</script>
+

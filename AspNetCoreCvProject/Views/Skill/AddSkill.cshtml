@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/NewAdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Yeteneklerini Genişlet!</h3>
+</div>
+<!-- Light table -->
+<form class="form-group" method="post">
+    <br />
+    <br />
+    @Html.Label("Yetenek Başlığı")
+    <input type="text" name="Title" class="form-control" />
+    <br />
+    @Html.Label("Değer (1-100)")
+    <input type="range" name="Value" min="0" max="100" class="form-control-range" step="1" oninput="DisplayChange(this.value)" />
+    <span id="value"></span>
+    <br />
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
+<script>
+    function DisplayChange(newvalue) {
+        document.getElementById(
+            "value").innerHTML = newvalue;
+    }
+</script>
+

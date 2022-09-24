@@ -1,0 +1,75 @@
+﻿@using EntityLayer.Concrete
+@model List<Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/NewAdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Yetenek Listesi Tablosu</h3>
+</div>
+<!-- Light table -->
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col" class="sort" data-sort="name">#</th>
+                <th scope="col" class="sort" data-sort="budget">Başlık</th>
+                <th scope="col" class="sort" data-sort="completion">Oran</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">Sil</th>
+                <th scope="col" class="sort" data-sort="status">Güncelle</th>
+
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+
+
+            <tr>
+                <th>@item.SkillID</th>
+                <td class="budget">@item.Title</td>
+                @if (item.Value == "100")
+                {
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: @item.Value%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </td>
+                }
+                else if (item.Value == "85")
+                {
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: @item.Value%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </td>
+                }
+                else if (item.Value == "50")
+                {
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: @item.Value%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: @item.Value%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </td>
+                }
+                <td></td>
+                <td></td>
+                <td><a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Skill/EditSkill/@item.SkillID" class="btn btn-outline-primary">Güncelle</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-info" href="/Skill/AddSkill/">Yetenek Ekle</a>
+</div>

@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/NewAdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Proje Listesi Tablosu</h3>
+</div>
+<!-- Light table -->
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col" class="sort" data-sort="name">#</th>
+                <th scope="col" class="sort" data-sort="budget">Proje İsmi</th>
+                <th scope="col" class="sort" data-sort="completion">Görsel</th>
+                <th scope="col" class="sort" data-sort="completion">Büyük Görsel</th>
+                <th scope="col" class="sort" data-sort="completion">Github Linki</th>
+                <th scope="col">Sil</th>
+                <th scope="col" class="sort" data-sort="status">Güncelle</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <th>@item.PortfolioID</th>
+                    <th class="budget">@item.Name</th>
+                    <td class="budget">@item.ImageUrl</td>
+                    <td class="budget">@item.BigImageUrl</td>
+                    <td class="budget">@item.ProjectUrl</td>
+                    <td><a href="/Portfolio/DeletePortfolio/@item.PortfolioID" class="btn btn-outline-danger">Sil</a></td>
+                    <td><a href="/Portfolio/EditPortfolio/@item.PortfolioID" class="btn btn-outline-primary">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-info" href="/Portfolio/AddPortfolio/">Proje Ekle</a>
+</div>
+
